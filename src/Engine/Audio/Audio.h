@@ -5,7 +5,9 @@
 
 class Audio {
 public:
+
     static void PlayFrequency(int frequency, int duration);
+
 };
 
 #endif //CPONG_AUDIO_H

@@ -6,8 +6,8 @@
 TEST_CASE("Window::Window", "[window]") {
     Window window("CPONG", 80, 25);
 
-    REQUIRE(window.GetWidth() == 80);
-    REQUIRE(window.GetHeight() == 25);
+    REQUIRE(window.Width() == 80);
+    REQUIRE(window.Height() == 25);
     REQUIRE(window.IsRunning() == true);
 }
 

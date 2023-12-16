@@ -6,6 +6,9 @@ set(CMAKE_CXX_STANDARD 17)
 # Main executable
 add_executable(CPong
         src/Main.cpp
+        src/Engine/Core/HardwareInfo.cpp
+        src/Engine/Core/PlatformDetection.cpp
+        src/Engine/Core/Logger.cpp
         src/Engine/Window/Window.cpp
         src/Engine/Renderer/Renderer.cpp
         src/Engine/Input/Input.cpp

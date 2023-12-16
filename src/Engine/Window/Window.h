@@ -13,13 +13,13 @@ public:
 
     bool IsInBounds(int x, int y) const;
 
-    int GetWidth() const;
+    int Width() const;
 
-    int GetHeight() const;
+    int Height() const;
 
     bool IsRunning() const;
 
-    const std::vector<char> &GetData() const;
+    const std::vector<char> &Data() const;
 
     void Fill(char clear_char);
 

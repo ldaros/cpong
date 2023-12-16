@@ -10,25 +10,18 @@ public:
 
     Paddle(int x, int y, int height);
 
-    virtual void Update(Window &window) = 0;
-
-    void Draw(Window &window);
-
-    Vector2i GetPosition() const;
-
-    int GetHeight() const;
-
-protected:
-    static constexpr int kWidth = 1;
-    Vector2i position_;
-    Vector2i prev_position_;
-    int height_;
+    void Draw(Window &window) const;
 
     void ClampToWindow(const Window &window);
 
     void ClearPrevious(Window &window) const;
 
     void Render(Window &window) const;
+
+    static constexpr int kWidth = 1;
+    Vector2i position;
+    Vector2i prev_position;
+    int height;
 };
 
 #endif //CPONG_PADDLE_H

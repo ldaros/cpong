@@ -15,7 +15,7 @@ public:
 
     void Draw(Window &window) const;
 
-    Vector2i GetPosition() const;
+    Vector2i Position() const;
 
 private:
     static constexpr int kTopBoundary = 2;

@@ -12,11 +12,11 @@ Renderer::Renderer(int frameRate) {
 
 void Renderer::DrawFrame(const Window &canvas) {
     std::string frame;
-    frame.reserve(canvas.GetWidth() * canvas.GetHeight() + canvas.GetHeight());
+    frame.reserve(canvas.Width() * canvas.Height() + canvas.Height());
 
-    for (int y = 0; y < canvas.GetHeight(); y++) {
-        frame.append(canvas.GetData().begin() + y * canvas.GetWidth(),
-                     canvas.GetData().begin() + (y + 1) * canvas.GetWidth());
+    for (int y = 0; y < canvas.Height(); y++) {
+        frame.append(canvas.Data().begin() + y * canvas.Width(),
+                     canvas.Data().begin() + (y + 1) * canvas.Width());
         frame.push_back('\n');
     }
 

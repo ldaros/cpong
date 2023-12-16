@@ -1,19 +1,31 @@
 #include "Engine/Input/Input.h"
 #include "Player.h"
 
-Player::Player() : Paddle() {}
+Player::Player() : paddle_() {}
 
-Player::Player(int x, int y, int height) : Paddle(x, y, height) {}
+Player::Player(int x, int y, int height) : paddle_(x, y, height) {}
 
 void Player::Update(Window &window) {
-    prev_position_ = position_;
+    paddle_.prev_position = paddle_.position;
 
     if (Input::IsKeyPressed(Key::UP)) {
-        --position_.y;
+        --paddle_.position.y;
     }
     if (Input::IsKeyPressed(Key::DOWN)) {
-        ++position_.y;
+        ++paddle_.position.y;
     }
 
-    ClampToWindow(window);
+    paddle_.ClampToWindow(window);
+}
+
+Vector2i Player::Position() const {
+    return paddle_.position;
+}
+
+int Player::Height() const {
+    return paddle_.height;
+}
+
+void Player::Draw(Window &window) const {
+    paddle_.Draw(window);
 }

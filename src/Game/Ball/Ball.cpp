@@ -25,11 +25,11 @@ void Ball::Update(Window &window, Vector2i paddle_pos, int paddle_height,
 }
 
 void Ball::CheckBoundaryCollision(const Window &window) {
-    if (position.y < kTopBoundary || position.y > window.GetHeight() - kBottomOffset) {
+    if (position.y < kTopBoundary || position.y > window.Height() - kBottomOffset) {
         velocity.y *= -1;
         Audio::PlayFrequency(kWallHitFrequency, kWallHitDuration);
     }
-    if (position.x < kBallSize || position.x > window.GetWidth() - kBallSize) {
+    if (position.x < kBallSize || position.x > window.Width() - kBallSize) {
         velocity.x *= -1;
         Audio::PlayFrequency(kWallHitFrequency, kWallHitDuration);
     }
@@ -55,7 +55,7 @@ bool Ball::UpdateScore(int &player_score, int &ai_score, const Window &window) c
         ai_score++;
         return true;
     }
-    if (position.x > window.GetWidth() - kBallSize) {
+    if (position.x > window.Width() - kBallSize) {
         player_score++;
         return true;
     }
@@ -63,7 +63,7 @@ bool Ball::UpdateScore(int &player_score, int &ai_score, const Window &window) c
 }
 
 void Ball::ResetPosition(Window &window) {
-    position = {window.GetWidth() / 2, window.GetHeight() / 2};
+    position = {window.Width() / 2, window.Height() / 2};
 }
 
 void Ball::Draw(Window &window) const {
@@ -71,6 +71,6 @@ void Ball::Draw(Window &window) const {
     window.SetChar(position.x, position.y, 'O');
 }
 
-Vector2i Ball::GetPosition() const {
+Vector2i Ball::Position() const {
     return position;
 }

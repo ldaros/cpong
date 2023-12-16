@@ -33,15 +33,15 @@ bool Window::IsInBounds(int x, int y) const {
     return x >= 0 && x < width_ && y >= 0 && y < height_;
 }
 
-int Window::GetWidth() const { return width_; }
+int Window::Width() const { return width_; }
 
-int Window::GetHeight() const { return height_; }
+int Window::Height() const { return height_; }
 
 bool Window::IsRunning() const { return running_; }
 
 void Window::Close() { running_ = false; }
 
-const std::vector<char> &Window::GetData() const { return data_; }
+const std::vector<char> &Window::Data() const { return data_; }
 
 void Window::HideCursor() {
     HANDLE console_handle = GetStdHandle(STD_OUTPUT_HANDLE);
